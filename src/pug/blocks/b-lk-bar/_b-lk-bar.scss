@@ -1,0 +1,10 @@
+.b-lk-bar {
+    background-color: $cGrey;
+    &__cnt {
+        @include ptb(8);
+    }
+    &__login-link {
+        font-size: 0.66em;
+        color: white;
+    }
+}

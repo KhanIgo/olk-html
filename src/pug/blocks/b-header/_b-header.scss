@@ -1,0 +1,27 @@
+.b-header {
+    &__cnt {
+        justify-content: space-between;
+        align-items: center;
+        @include ptb(25);
+    }
+    &__logo {
+        @include plr(0);
+    }
+    &__nav{
+        @include flex;
+        justify-content: flex-end;
+        padding-right: 40px;
+        
+        
+    }
+    &__phone-wrpr {
+        @include plr(0);
+        font-size: 1.15em;
+        font-weight: 500;
+        
+    }
+    &__phone {
+        text-decoration: none;    
+        color: $cPrimary;
+    }
+}

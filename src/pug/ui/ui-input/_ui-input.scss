@@ -1,0 +1,96 @@
+.ui-form-item{
+    &_inp-text{
+        position: relative;
+        width: 100%;
+        display: flex;
+    }
+    
+    &__label{
+        display: block;
+        width: 100%;
+        color: rgba(255, 255, 255, 0.8);
+        position: absolute;
+        z-index: -1;
+        font-size: 1em;
+        bottom: 0em;
+        left: 0.3em;
+        transition: 0.35s ease-in-out;
+
+        &_text {}
+    }
+} 
+
+.ui-form-input{
+    &_text{
+        width: 100%;
+        
+//        padding: 0.5em 0.7em;
+//        border: solid 1px grey;
+//        border-radius: 4px;
+        padding: 0 0.3em;
+        border-bottom: solid 2px rgba(255, 255, 255, 0.9);
+        outline: none !important;
+//        border-radius: 4px;
+        
+        
+        font-size: 1em;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.8);
+
+        &:focus {
+            & + .ui-form-item__label {
+                bottom: 1.75em;
+                font-size: 0.75em;
+            }
+        }
+    }
+}
+
+.ui-input{
+    &_btn{
+        padding: 0.5em 1em 0.5em 0.75em;
+        
+        border: solid 2px rgba(255, 255, 255, 0.9);
+//        border-left: solid 2px rgba(255, 255, 255, 0.9);
+//        border-bottom: solid 2px rgba(255, 255, 255, 0.9);
+        color: rgba(255, 255, 255, 0.9);
+//        border-radius: 4px;
+        font-size: 1em;
+//        background: rgba(255, 255, 255, 0.95);
+        background: transparent;
+//        color: inherit;
+//        cursor: none;
+//        border-left: solid 2px
+        
+        display: inline-block;
+        transition: transform 0.25s ease-in-out;
+    }
+    &_submit{}
+    &_full{}
+}
+
+.c-input {
+    
+    
+    &_submit-wrpr{
+        display: flex;
+        width: 100%;
+        color: white;
+//        pointer-events: none;
+        transition: transform 0.25s ease-in-out;
+    }
+
+
+    &__btn {
+        
+        
+
+        &_submit {
+            padding-left: 1.5em;
+            padding-right: 1.5em;
+        }
+        &_full{
+            width: 100%;
+        }
+    }
+}

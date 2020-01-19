@@ -1,0 +1,10 @@
++b.c-breadcrumbs-row.row
+    +b.c-breadcrumbs-cnt.cnt
+        +b.UL.c-breadcrumbs
+            +e.LI.item
+                +e.A(href="#").link Главная
+                +e.SPAN.delimiter /
+            each breadcrumb in  breadcrumbs
+                +e.LI.item
+                    +e.A(href="#").link #{breadcrumb}
+                    +e.SPAN.delimiter /

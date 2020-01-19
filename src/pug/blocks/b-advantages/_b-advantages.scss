@@ -1,0 +1,40 @@
+.b-advantages {
+    &__cnt {
+        text-align: center;
+    }
+    &__title {
+    }
+    &__desc {
+        margin-top: 5px;
+    }
+    &__items {
+        @include flex;
+        justify-content: center;
+        margin-top: 35px;
+    }
+}
+
+
+.b-advantage-item {
+    @include flex;
+    flex: 30% 0 0;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 15px;
+    padding: 15px 0;
+    border-right: solid 1px #ebebeb;
+    &:last-of-type{
+        border-right: none;
+    }
+    &__icon-wrp {
+    }
+    &__icon {
+        &_1{
+        }
+    }
+    &__text {
+        margin-top: 20px;
+        font-weight: 500;
+    }
+    
+}

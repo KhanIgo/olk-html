@@ -1,0 +1,40 @@
+.ui-link {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+//    @include f-bebas;
+    display: flex;
+    align-items: center;
+    
+    font-size: 1.2em;
+    letter-spacing: 0.025em;
+    transform: all 0.35s ease-in-out;
+    
+    &:hover{
+        transform: scale(1.05);
+    }
+    i {
+        display: inline-block;
+        width: 1.35em;
+        height: 1.35em;
+        margin-right: 0.7em;
+        background-color: currentColor;
+        @include mask-size(contain);
+        @include mask-rep(no-repeat);
+        @include mask-pos(center);
+    }
+    span{
+        position: relative;
+        top: 0.15em;
+    }
+    &_phone{
+        i{
+            @include mask('../img/ui/phone-def.svg')
+        }
+    }
+    &_email{
+        i{
+            @include mask('../img/ui/mail-def.svg')
+        }
+    }
+}

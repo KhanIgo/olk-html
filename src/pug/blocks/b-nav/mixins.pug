@@ -1,0 +1,3 @@
+mixin nav-item(link_text, active, url)    
+    li(class= active ? "b-nav__item b-nav__item_active" : "b-nav__item")
+        a(href=""+url).b-nav__link= link_text

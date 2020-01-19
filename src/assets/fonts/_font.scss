@@ -1,0 +1,96 @@
+@mixin font($fName, $fWeight, $fStyle, $fileName, $path, $localName:false){
+    $src: "";
+    $src: $src + local('#{$fName}');
+    $src: $src + ', '+ url("#{$path}/#{$fileName}.eot?#iefix") + ' format("embedded-opentype")';
+    @if($isTtf){ $src: $src + ', '+ url("#{$path}/#{$fileName}.ttf") + ' format("truetype")'; }
+    @if($isWoff){ $src: $src +', '+ url("#{$path}/#{$fileName}.woff") + ' format("woff")'; }
+    
+    @font-face {
+        font-family: "#{$fName}";
+        src: url("#{$path}/#{$fileName}.eot");
+        src: #{$src};
+        font-weight: #{$fWeight};
+        font-style: #{$fStyle};
+    }
+}
+
+// FONT BEBAS BEGIN
+//$isWoff: true;
+//$isTtf: true;
+//$fontPath: '/assets/fonts/BebasNeue';
+//@include font('BebasNeue', 100, 'normal', 'BebasNeue-Thin', $fontPath);
+//@include font('BebasNeue', 300, 'normal', 'BebasNeueLight', $fontPath);
+//@include font('BebasNeue', 400, 'normal', 'BebasNeueRegular', $fontPath);
+//@include font('BebasNeue', 600, 'normal', 'BebasNeueBook', $fontPath);
+//@include font('BebasNeue', 800, 'normal', 'BebasNeueBold', $fontPath);
+//@mixin f-bebas{
+//    font-family: "BebasNeue";
+//}
+//.f-bebas{
+//    @include f-bebas;
+//}
+// FONT BEBAS END
+
+// FONT CIRCE BEGIN
+//$isWoff: true;
+//$isTtf: true;
+//$fontPath: '/assets/fonts/Circe/Thin';
+//@include font('Circe', 100, 'normal', 'Circe', $fontPath);
+//$fontPath: '/assets/fonts/Circe/Extra_Light';
+//@include font('Circe', 200, 'normal', 'Circe', $fontPath);
+//$fontPath: '/assets/fonts/Circe/Light';
+//@include font('Circe', 300, 'normal', 'Circe', $fontPath);
+//$fontPath: '/assets/fonts/Circe/Regular';
+//@include font('Circe', 400, 'normal', 'Circe', $fontPath);
+//$fontPath: '/assets/fonts/Circe/Bold';
+//@include font('Circe', 600, 'normal', 'Circe', $fontPath);
+//$fontPath: '/assets/fonts/Circe/Extra_Bold';
+//@include font('Circe', 800, 'normal', 'Circe', $fontPath);
+// FONT CIRCE END
+
+// FONT DIN PRO BEGIN
+$isWoff: true;
+$isTtf: true;
+$fontPath: '/assets/fonts/DINpro-transfonter';
+@include font('DIN Pro', 300, 'normal', 'DINPro-Light', $fontPath);
+@include font('DIN Pro', 400, 'normal', 'DINPro', $fontPath);
+@include font('DIN Pro', 500, 'normal', 'DINPro-Medium', $fontPath);
+@include font('DIN Pro', 900, 'normal', 'DINPro-Black', $fontPath);
+@include font('DIN Pro', bold, 'normal', 'DINPro-Bold', $fontPath);
+
+@include font('DIN Pro', 300, 'italic', 'DINPro-LightItalic', $fontPath);
+@include font('DIN Pro', 400, 'italic', 'DINPro-Italic', $fontPath);
+@include font('DIN Pro', 500, 'italic', 'DINPro-MediumItalic', $fontPath);
+@include font('DIN Pro', 900, 'italic', 'DINPro-BlackItalic', $fontPath);
+@include font('DIN Pro', bold, 'italic', 'DINPro-BoldItalic', $fontPath);    
+
+@include font('DIN Pro Cond', 300, 'normal', 'DINPro-CondensedLight', $fontPath);
+@include font('DIN Pro Cond', 400, 'normal', 'DINPro-CondensedRegular', $fontPath);
+@include font('DIN Pro Cond', 500, 'normal', 'DINPro-CondensedMedium', $fontPath);
+@include font('DIN Pro Cond', 900, 'normal', 'DINPro-CondensedBlack', $fontPath);
+@include font('DIN Pro Cond', bold, 'normal', 'DINPro-CondensedBold', $fontPath);
+
+@include font('DIN Pro Cond', 300, 'italic', 'DINPro-CondensedLightItalic', $fontPath);
+@include font('DIN Pro Cond', 400, 'italic', 'DINPro-CondensedRegularItalic', $fontPath);
+@include font('DIN Pro Cond', 500, 'italic', 'DINPro-CondensedMediumItalic', $fontPath);
+@include font('DIN Pro Cond', 900, 'italic', 'DINPro-CondensedBlackItalic', $fontPath);
+@include font('DIN Pro Cond', bold, 'italic', 'DINPro-CondensedBoldItalic', $fontPath);
+// FONT DIN PRO END
+
+// FONT CODE PRO BEGIN
+//$isWoff: true;
+//$isTtf: true;
+//$fontPath: '/assets/fonts/CodePro';
+//@include font('Code Pro', 300, 'normal', 'Code-Pro-Light', $fontPath);
+//@include font('Code Pro', 400, 'normal', 'Code-Pro', $fontPath);
+//@include font('Code Pro', 800, 'normal', 'Code-Pro-Bold', $fontPath);
+//@include font('Code Pro', 900, 'normal', 'Code-Pro-Black', $fontPath);
+
+//@include font('Code Pro LC', 300, 'normal', 'Code-Pro-Light-LC', $fontPath);
+//@include font('Code Pro LC', 400, 'normal', 'Code-Pro-LC', $fontPath);
+//@include font('Code Pro LC', 800, 'normal', 'Code-Pro-Bold-LC', $fontPath);
+//@include font('Code Pro LC', 900, 'normal', 'Code-Pro-Black-LC', $fontPath);
+
+//@include font('Code Pro Demo', 300, 'normal', 'Code-Pro-Light-Demo', $fontPath);
+//@include font('Code Pro Demo', 400, 'normal', 'Code-Pro-Demo', $fontPath);
+// FONT CODE PRO END

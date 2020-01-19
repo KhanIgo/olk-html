@@ -1,0 +1,22 @@
+.b-geography {
+    &__cnt {
+        padding-top: 20px;
+        text-align: center;
+    }
+    &__title {
+    }
+    &__desc {
+        position: relative;
+        z-index: 2;
+    }
+    &__map {
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        transform: translateY(-7%);
+    }
+    &__map-img {
+        width: 100%;
+        height: auto;
+    }
+}

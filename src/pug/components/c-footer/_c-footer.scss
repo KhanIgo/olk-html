@@ -1,0 +1,36 @@
+.c-footer {
+    margin-top: 50px;
+    padding-top: 70px;
+    padding-bottom: 45px;
+    @include bg-grad_footer;
+    @include mask('../img/c-footer/c-footer-mask.svg');
+    @include mask-rep(no-repeat);
+    @include mask-size(100% 100%);
+    @include mask-pos(top center);
+    color: white;
+    
+    &__cnt {
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    &__logo {
+        margin-top: 15px;
+    }
+    &__contacts {
+        text-align: right;
+    }
+    &__contacts-links {
+        font-weight: 500;
+        font-size: 1.1em;
+        letter-spacing: 0.08em;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    &__contacts-address {
+        font-size: 0.77em;
+        font-weight: 500;
+        margin-top: 15px;
+    }
+}

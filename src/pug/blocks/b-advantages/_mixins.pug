@@ -1,0 +1,6 @@
+mixin adv-item(img, text, mod="")
+    +b.b-advantage-item
+        +e.icon-wrp
+            +e.IMG(src=''+img, class='icon_'+mod)
+        +e.text
+            p!= text

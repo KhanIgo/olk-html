@@ -1,0 +1,113 @@
+.b-nav {
+//    margin-left: 20px;
+    &__list {
+        list-style: none;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        font-size: 0.77em;
+        
+//        @media (max-width: 900px) {
+//            flex-direction: column;
+//            align-items: flex-end;
+//        }
+    }
+    &__item {
+        margin: 0 12px;
+        position: relative;
+        &:first-child{ margin-left: 0; }
+        &:last-child{ margin-right: 0; }
+        
+        
+        &_active{}
+    }
+    &__link {
+        text-decoration: none;
+        color: white;
+        transition: 300ms;
+        transition: 300ms ease-in-out;
+        position: relative;
+        white-space: nowrap;
+        font-weight: 600;
+        
+        &:before, &:after{
+            content: '';
+            position: absolute;
+            display: block;
+            height: 2px;
+            background-color: currentColor;
+            bottom: -4px;
+            transition: all 300ms ease-in-out;
+            width: 0px;
+        }
+        &:before{
+            left: 50%;
+        }
+        &:after{
+            right: 50%;
+        }
+        
+        &:hover{
+            &:before, &:after{
+                width: 52%;
+            }
+        }
+    }
+    
+    &__item_hide{
+        position: relative;
+        >a{ display: none; }
+        @media (min-width: 900px) {
+            width: 0;
+            height: 0;
+        }
+    }
+    &__submenu-wrpr{
+        @media (min-width: 900px) {
+            position: fixed;
+            height: 100vh;
+            top: 85px;
+            right: 0;
+            padding: 30px;
+            background-color: rgba(255,255,255,0.75);
+            transition: 500ms ease-in-out;
+            z-index: 70;
+            transform: translateX( 100% );
+
+            &:before{
+                content: '';
+                display: block;
+                position: absolute;
+                height: 100%;
+                width: 100vw;
+                top: 0;
+                right: 100%;
+                transform: translateX( -100% );
+                background-color: rgba(0,0,0, 0.5);
+                z-index: 71;
+                transition: 500ms ease-in-out;
+            }
+
+            &.is-active{
+                transform: translateX( 0 );
+                &:before{
+                    transform: translateX( 0 );
+                }
+            }
+        }
+        
+    }
+    &__submenu{
+        list-style: none;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    
+}

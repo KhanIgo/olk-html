@@ -1,0 +1,14 @@
+include _mixins
+
++b.b-advantages.row
+    +e.cnt.cnt
+        +e.title.col-12-xs
+            h3 НАШИ ПРЕИМУЩЕСТВА
+        +e.desc.col-12-xs
+            p Мы повышаем производительность предприятий, <br>предлагая комплексные решения для оснащения производств
+        +e.items.col-12-xs
+            //+adv-item(label, img, text, mod="")
+            +adv-item('/images/b-advantages/001-warehouse.png', 'Собственный склад <br>в Москве', '1')
+            +adv-item('/images/b-advantages/002-truck.png', 'Быстрая доставка <br>во все регионы', '2')
+            +adv-item('/images/b-advantages/003-circular-saw.png', 'Наличие наиболее <br>востребованного инструмента <br>на складе компании', '3._p0')
+            

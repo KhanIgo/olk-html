@@ -1,0 +1,22 @@
+doctype html
+include parts/_mixins
+html(lang='RU-ru')
+    +head('Главная')
+    
+    body
+        include components/c-header/c-header
+        include blocks/b-intro/b-intro
+        include blocks/b-supply/b-supply
+        include blocks/b-order/b-order
+        include blocks/b-geography/b-geography
+        include blocks/b-advantages/b-advantages
+        include blocks/b-order/b-order
+        include blocks/b-companies/b-companies
+        include components/c-footer/c-footer
+        include parts/_footer-scripts
+        
+        script.
+            jQuery(function($) {});
+  
+  
+    

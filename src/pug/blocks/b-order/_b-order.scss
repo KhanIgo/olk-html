@@ -1,0 +1,24 @@
+.b-order {
+    background-image: url('../img/b-order/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    @include mask('../img/b-order/b-order-mask.svg');
+    @include mask-size(100% 100%);
+    @include mask-rep(no-repeat);
+    @include mask-pos(center);
+    &__cnt {
+        padding: 125px 0;
+    }
+    &__data {
+        @include flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__act {
+    }
+    &__text {
+        text-align: right;
+        line-height: 1.7em;
+    }
+}

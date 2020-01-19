@@ -1,0 +1,7 @@
+mixin ui-input-text(text="", mod="")
+    +b(class="ui-input_inp-submit")
+        +e.BUTTON(type="submit", class="ui-form_btn-submit _"+mod)!= text
+
+mixin ui-input-submit(text="", mod="")
+    +b.BUTTON(type="submit", class="ui-input_btn _submit _"+mod)!= text
+        

@@ -1,0 +1,10 @@
+//mixin input-text(label, placeholder='', name='', mod="")
+    +b.LABEL.ui-form-item_inp-text
+        +b.INPUT(type="text", placeholder=""+placeholder, name=''+name, class='ui-form-input_text _'+mod)
+        +e.SPAN.label_text!= label
+        
+        
+//mixin btn-submit(text="", mod="")
+    +b(class="ui-form-item_inp-submit")
+        +ui-input-submit(text, mod)
+        
