@@ -10,7 +10,6 @@ const ham = document.querySelector('.js-ham'),
 ham.addEventListener('click', hamCallback);
 
 
-
 function getPopupId(classes) {
     var id;
     classes.forEach( function(cls) {
