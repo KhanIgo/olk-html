@@ -8,6 +8,12 @@
     @include mask-rep(no-repeat);
     background-color: #fff;
     
+    &_down{
+        width: 25px;
+        height: 25px;
+        @include mask('../img/ui-icon/expand_arrow.svg');
+    }
+    
 //    &_monitoring{
 //        width: 115px;
 //        @include mask('../img/ui-icon/monitoring.png');

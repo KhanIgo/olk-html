@@ -23,5 +23,7 @@
     &__phone {
         text-decoration: none;    
         color: $cPrimary;
+        position: relative;
+        @include hover-underline;
     }
 }
