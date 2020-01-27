@@ -1,17 +1,36 @@
 .b-header {
+    position: relative;
+    @media (max-width: $mobMaw){
+        background-color: #fff;
+    }
     &__cnt {
         justify-content: space-between;
         align-items: center;
         @include ptb(25);
+        
+        @media (max-width: $mobMaw){
+            @include ptb(10);
+        }
     }
     &__logo {
         @include plr(0);
+        @media (max-width: $mobMaw){
+            max-width: 230px;
+        }
     }
     &__nav{
         @include flex;
         justify-content: flex-end;
         padding-right: 40px;
-        
+        @media (max-width: $mobMaw){
+            padding-right: 0;
+            overflow: hidden;
+            transition: 500ms ease-in-out;
+            max-height: 0;
+            &.is-active{
+                max-height: 500px;
+            }
+        }
         
     }
     &__phone-wrpr {
@@ -25,5 +44,16 @@
         color: $cPrimary;
         position: relative;
         @include hover-underline;
+        @media (max-width: $mobMaw){
+            display: none;
+        }
+    }
+    &__ham{
+        position: absolute;
+        right: 10px;
+        top: 15px;
+        z-index: 15;
+        font-size: 0.85em;
+        
     }
 }

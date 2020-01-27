@@ -2,7 +2,8 @@
 $gutter: 0px;
 $cntMaxWidth: 980px;
 $cntWideMaxWidth: 1600px;
-
+$columnsQty: 12;
+$ordersQty: 10;
 img{
     max-width: 100%;
 }
@@ -26,7 +27,6 @@ img{
 .gr-grow{
     flex-grow: 100;
 }
-.shrink
 
 .pl_0 {
     padding-left: 0;
@@ -41,63 +41,93 @@ img{
 }
 
 @mixin grid($prefix, $suffix, $paddings){
-    .#{$prefix}-1-#{$suffix}{
-        $width: 8.3333%;
-        @include grid-item($width, $paddings);
-    }
-    .#{$prefix}-2-#{$suffix}{
-        $width: 16.6666%;
-        @include grid-item($width, $paddings);
-    }
-    .#{$prefix}-3-#{$suffix}{
-        $width: 25%;
-        @include grid-item($width, $paddings);
-    }
-    .#{$prefix}-4-#{$suffix}{
-        $width: 33.3333%;
-        @include grid-item($width, $paddings);
-    }
-    .#{$prefix}-5-#{$suffix}{
-        $width: 41.6666%;
-        @include grid-item($width, $paddings);
-    }
-    .#{$prefix}-6-#{$suffix}{
-        $width: 50%;
-        @include grid-item($width, $paddings);
-    }
-    .#{$prefix}-7-#{$suffix}{
-        $width: 58.3333%;
-        @include grid-item($width, $paddings);
-    }
-    .#{$prefix}-8-#{$suffix}{
-        $width: 66.6666%;
-        @include grid-item($width, $paddings);
-    }
-    .#{$prefix}-9-#{$suffix}{
-        $width: 75%;
-        @include grid-item($width, $paddings);
-    }
-    .#{$prefix}-10-#{$suffix}{
-        $width: 83.3333%;
-        @include grid-item($width, $paddings);
-    }
-    .#{$prefix}-11-#{$suffix}{
-        $width: 91.6666%;
-        @include grid-item($width, $paddings);
-    }
-    .#{$prefix}-12-#{$suffix}{
-        $width: 100%;
-        @include grid-item($width, $paddings);
+    @for $i from 1 through $columnsQty {
+        .#{$prefix}-#{$i}-#{$suffix}{
+            $width: 100% / $columnsQty * $i;
+            @include grid-item($width, $paddings);
+        }
     }
     .full-screen-#{$suffix}{
         width: 100vw;
         min-height: 100vh;
     }
 }
+@mixin order($suffix){
+    @for $i from 1 through $columnsQty {
+        .order-#{$i}-#{$suffix}{
+            order: $i;
+        }
+    }
+}
+@mixin direction($suffix){
+    .dir-col-#{$suffix}{
+        flex-direction: column;
+    }
+    .dir-col-rev-#{$suffix}{
+        flex-direction: column-reverse;
+    }
+    .dir-row-#{$suffix}{
+        flex-direction: row;
+    }
+    .dir-row-rev-#{$suffix}{
+        flex-direction: row-reverse;
+    }
+}
+@mixin margin($suffix){
+    @for $i from 0 through 5 {
+        .mt-#{$i}-#{$suffix}{
+            margin-top: #{$i}em;
+        }
+        .mb-#{$i}-#{$suffix}{
+            margin-bottom: #{$i}em;
+        }
+        .ml-#{$i}-#{$suffix}{
+            margin-left: #{$i}em;
+        }
+        .mr-#{$i}-#{$suffix}{
+            margin-right: #{$i}em;
+        }
+    }
+}
+@mixin padding($suffix){
+    @for $i from 0 through 5 {
+        .pt-#{$i}-#{$suffix}{
+            padding-top: #{$i}em;
+        }
+        .pb-#{$i}-#{$suffix}{
+            padding-bottom: #{$i}em;
+        }
+        .pl-#{$i}-#{$suffix}{
+            padding-left: #{$i}em;
+        }
+        .pr-#{$i}-#{$suffix}{
+            padding-right: #{$i}em;
+        }
+    }
+}
+@mixin margin-and-padding($suffix){
+    @include margin($suffix);
+    @include padding($suffix);
+}
+@mixin hidden($suffix){
+    .hidden-#{$suffix}{
+        display: none;
+    }
+}
+@mixin visible($suffix){
+    .visible-#{$suffix}{
+        display: block;
+    }
+}
+@mixin visible-and-hidden($suffix){
+    @include visible($suffix);
+    @include hidden($suffix);
+}
+
 @mixin grid-item($width, $paddings){
 //    flex: #{$width} 0 0;
-    flex-basis: #{$width};
-    flex-shrink: 0;
+    flex: #{$width} 0 0;
+    max-width: #{$width};
     padding-left: #{$paddings};
     padding-right: #{$paddings};
 }
@@ -147,65 +177,93 @@ img{
         margin-rigth: -#{$gutter};
     }
 }
-@mixin direction($size){
-    .dir-col-#{$size}{ flex-direction: column; }
-    .dir-col-rev-#{$size}{ flex-direction: column-reverse; }
-    .dir-row-#{$size}{ flex-direction: row; }
-    .dir-row-rev-#{$size}{ flex-direction: row-reverse; }
-}
-@mixin order($size){
-    .order-1-#{$size}{ order: 1;}
-    .order-2-#{$size}{ order: 2;}
-    .order-3-#{$size}{ order: 3;}
-    .order-4-#{$size}{ order: 4;}
-    .order-5-#{$size}{ order: 5;}
-    .order-6-#{$size}{ order: 6;}
-    .order-7-#{$size}{ order: 7;}
-    .order-8-#{$size}{ order: 8;}
-    .order-9-#{$size}{ order: 9;}
-    .order-10-#{$size}{ order: 10;}
-    .order-11-#{$size}{ order: 11;}
-    .order-12-#{$size}{ order: 12;}
-}
-
-@mixin align($size){
-    .to-left-#{$size}{
-        margin-right: auto;
-    }
-    .to-right-#{$size}{
-        margin-left: auto;
-    }
-    .to-center-#{$size}{
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-
 
 @include grid('col', 'xs', '10px');
 @include offset('xs');
-@media (min-width: 480px) {
-    @include grid('col', 'sm', $gutter);
-    @include order('sm');
-    @include offset('sm');
-    @include align('sm');
-    @include offset-to-win-border-in-sml('sm');
+.col-12-xs{
+    padding-left: 0;
+    padding-right: 0;
 }
-@media (min-width: 760px) {
+@media (max-width: 750px) {
+    @include grid('col', 'sm', $gutter);
+    @include offset('sm');
+    @include offset-to-win-border-in-sml('sm');
+    @include order('sm');
+    @include direction('sm');
+    @include margin-and-padding('sm');
+    @include visible-and-hidden('sm');
+    .col-12_sm{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+@media (max-width: 979px) {
     @include grid('col', 'md', $gutter);
     @include offset('md');
-    @include order('md');
-    @include align('md');
     @include offset-to-win-border-in-sml('md');
+    @include order('md');
+    @include direction('md');
+    @include margin-and-padding('md');
+    @include visible-and-hidden('md');
+    .col-12_md{
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
-@media (min-width: 960px) {
+@media (min-width: 980px) {
     @include grid('col', 'lg', $gutter);
     @include offset('lg');
-    @include order('lg');
-    @include align('lg');
     @include offset-to-win-border-in-sml('lg');
+    @include order('lg');
+    @include direction('lg');
+    @include margin-and-padding('lg');
+    @include visible-and-hidden('lg');
+    .col-12_lg{
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
+@media (min-width: 1200px) {
+    @include grid('col', 'xl', $gutter);
+    @include offset('xl');
+    @include order('xl');
+    @include direction('xl');
+    @include margin-and-padding('xl');
+    @include visible-and-hidden('xl');
+    .col-12_xl{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    @include offset-to-win-border-in-big('xl');
+}
+@media (min-width: 1600px) {
+    @include grid('col', 'xxl', $gutter);
+    @include offset('xxl');
+    @include offset-to-win-border-in-big('xxl');
+    @include order('xxl');
+    @include direction('xxl');
+    @include margin-and-padding('xxl');
+    @include visible-and-hidden('xxl');
+    .col-12_xxl{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: $mobMaw) {
+    @include grid('col', 'mob', $gutter);
+    @include offset('mob');
+    @include offset-to-win-border-in-sml('mob');
+    @include order('mob');
+    @include direction('mob');
+    @include margin-and-padding('mob');
+    @include visible-and-hidden('mob');
+    .col-12-mob{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 
 .row{
     width: 100%;
@@ -224,5 +282,9 @@ img{
     }
     &_full{
         max-width: 100%;
+    }
+    @media (max-width: $tabMaw){
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }

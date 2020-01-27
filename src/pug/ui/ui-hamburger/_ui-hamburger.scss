@@ -7,11 +7,6 @@
  * @link https://github.com/jonsuh/hamburgers
  */
 
-
-.hamburger{
-    display: none !important;
-}
-
 // Settings
 // ==================================================
 $hamburger-padding-x           : 0px !default;
@@ -22,7 +17,7 @@ $hamburger-padding-y           : 0px !default;
 $hamburger-layer-width         : 2.5em !default;
 $hamburger-layer-height        : 0.25em !default;
 $hamburger-layer-spacing       : 0.37em !default;
-$hamburger-layer-color         : white !default;
+$hamburger-layer-color         : black !default;
 //$hamburger-layer-border-radius : 2px !default;
 $hamburger-layer-border-radius : 0.12em !default;
 $hamburger-hover-opacity       : 0.8 !default;

@@ -2,7 +2,10 @@
     position: relative;
     padding-top: 180px;
     padding-bottom: 150px;    
-    
+    @media (max-width: $mobMaw){
+        padding-top: 50px;
+        padding-bottom: 70px;
+    }
     &__bg {
         position: absolute;
         width: 100%;
@@ -28,13 +31,21 @@
     &__offer {
         @include flex;
         flex-direction: column;
-        align-items: flex-end;
+        
+        @media (min-width: $deskMw){
+            align-items: flex-end;
+        }
         @include plr(0);
     }
     &__offer-title {
-        text-align: right;
+        
         text-transform: uppercase;
+        @media (min-width: $deskMw){
+            text-align: right;
+        }
+        
     }
+    
     
     &__offer-desc-act {
         width: 100%;
@@ -50,14 +61,19 @@
         width: 160px;
         flex-grow: 0;
         flex-shrink: 0;
-        margin-left: 20px;
+        @media (min-width: $deskMw){
+            margin-left: 20px;
+        }
     }
     
     &__img-wrpr {
 //        position: relative;
     }
     &__img {
-        position: absolute;
-        transform: translateY(-22%) translateX(-14%);
+        @media (min-width: $deskMw){
+            position: absolute;
+            transform: translateY(-22%) translateX(-14%);
+        }
+        
     }
 }

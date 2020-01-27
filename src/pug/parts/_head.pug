@@ -2,8 +2,11 @@ head
     meta(charset='UTF-8')
     -var date = Date.now()
     title!= title
-    link(rel='stylesheet', href='assets/fonts/DINPro/font.css')
-    link(rel='stylesheet', href='assets/fonts/CodePro/font.css')
+    
+    meta(name="viewport",  content="width=device-width, initial-scale=1")
+    script(src='assets/js/eqcss/EQCSS-polyfills.min.js')
+    script(src='assets/js/eqcss/EQCSS.min.js')
     //    link(rel='stylesheet', href='assets/libs/owlcarousel-2.3.4/assets/owl.carousel.css')
     link(rel='stylesheet', href='assets/css/libsBundle.css?cache='+ Date.now())
     link(rel='stylesheet', href='assets/css/style.css?cache='+ Date.now())
+    //script(type='text/eqcss', src='assets/css/style.css?cache='+ Date.now())

@@ -1,5 +1,13 @@
 .b-nav {
 //    margin-left: 20px;
+    
+    @media (min-width: $mobMaw){
+        color: white;
+    }
+    @media (max-width: $mobMaw){
+        width: 100%;
+        font-size: 1.5em;
+    }
     &__list {
         list-style: none;
         display: -webkit-flex;
@@ -9,23 +17,24 @@
         display: flex;
         font-size: 0.77em;
         
-//        @media (max-width: 900px) {
-//            flex-direction: column;
-//            align-items: flex-end;
-//        }
+        @media (max-width: $mobMaw) {
+            flex-direction: column;
+        }
     }
     &__item {
         margin: 0 12px;
         position: relative;
         &:first-child{ margin-left: 0; }
         &:last-child{ margin-right: 0; }
-        
+        @media (max-width: $mobMaw){
+            margin: 0.3em 0;
+        }
         
         &_active{}
     }
     &__link {
         text-decoration: none;
-        color: white;
+        color: inherit;
         transition: 300ms;
         transition: 300ms ease-in-out;
         position: relative;

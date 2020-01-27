@@ -1,0 +1,19 @@
+$imgMargin: 10px;
+img{
+    &.alignleft{
+        float: left;    
+        margin: $imgMargin $imgMargin $imgMargin 0;
+    }
+    &.alignright{
+        float: right;
+        margin: $imgMargin 0 $imgMargin $imgMargin;
+    }
+    &.aligncenter{
+        margin: $imgMargin auto;
+    }
+    @media (max-width: 500px) {
+//        width: 100%;
+//        float: none !important;
+//        margin: $imgMargin auto;
+    }
+}

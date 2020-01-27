@@ -6,4 +6,7 @@ body{
     color: $cText !important;
     line-height: 1.25;
     letter-spacing: 0.035em;
+    @media (max-width: $mobMaw){
+        padding-top: 95px;
+    }
 }

@@ -10,6 +10,7 @@
     &__items {
         @include flex;
         justify-content: center;
+        flex-wrap: wrap;
         margin-top: 35px;
     }
 }
@@ -18,6 +19,7 @@
 .b-advantage-item {
     @include flex;
     flex: 30% 0 0;
+    min-width: 250px;
     flex-direction: column;
     align-items: stretch;
     margin: 15px;

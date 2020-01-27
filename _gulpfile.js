@@ -39,15 +39,16 @@ gulp.task('pug', function () {
         .pipe(stream());
 });
 
-gulp.task('scssConcat', function () {
+gulp.task('scssConcat', function (cb) {
     let concatFilenamesOptions = {
         root: './src/pug/',
         prepend: "@import './../../pug/",
         append: "';"
     }
-    return gulp.src('./src/pug/**/*.scss')
+    gulp.src('./src/pug/**/*.scss')
         .pipe(concatFilenames('_autoimport.scss', concatFilenamesOptions))
-        .pipe(gulp.dest('./src/assets/scss'));
+        .pipe(gulp.dest('./src/assets/scss')); 
+    cb();
 });
 gulp.task('scssCompile', function () {
     return gulp.src('src/assets/scss/style.scss')
@@ -62,10 +63,42 @@ gulp.task('scssCompile', function () {
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(sourcemaps.write())
+//        .pipe(rename('styles.eqcss'))
         .pipe(gulp.dest('build/assets/css'))
         .pipe(stream());
 });
+
+gulp.task('eqcssConcat', function (cb) {
+    let concatFilenamesOptions = {
+        root: './src/pug/',
+        prepend: "@import './../../pug/",
+        append: "';"
+    }
+    gulp.src('./src/pug/**/*.eqcss')
+        .pipe(concatFilenames('_autoimport.scss', concatFilenamesOptions))
+        .pipe(gulp.dest('./src/assets/eqcss')); 
+    cb();
+});
+
+gulp.task('eqcssCompile', function () {
+    return gulp.src('src/assets/eqcss/style.scss')
+        .pipe(plumber({
+            errorHandler: notify.onError(function (err) {
+                return {
+                    title: 'Styles',
+                    message: err.message
+                }
+            })
+        }))
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(sourcemaps.write())
+        .pipe(rename('styles.eqcss'))
+        .pipe(gulp.dest('build/assets/eqcss'))
+        .pipe(stream());
+});
 gulp.task('scss', gulp.series('scssConcat', 'scssCompile' ));
+gulp.task('eqcss', gulp.series('eqcssConcat', 'eqcssCompile' ));
 
 gulp.task('copy:js', function () {
     return gulp.src('src/assets/js/**/*.js')
@@ -140,10 +173,12 @@ gulp.task('serve', function (done) {
     done();
 });
 
-
 gulp.task('watchers', function (done) {
     gulp.watch('src/pug/**/*.pug', gulp.series('pug'));
-    gulp.watch('src/**/*.scss', gulp.series('scssCompile'));
+//    gulp.watch('src/**/*.scss', gulp.series('scssCompile'));
+//    gulp.watch('src/**/*.eqcss', gulp.series('eqcssCompile'));
+    gulp.watch('src/**/*.scss', gulp.series('scss'));
+    gulp.watch('src/**/*.eqcss', gulp.series('eqcss'));
     gulp.watch('src/assets/js/**/*.js', gulp.series('copy:js'));
     gulp.watch('src/assets/img/**/*.*', gulp.series('copy:img'));
     gulp.watch('src/images/**/*.*', gulp.series('copy:img'));
@@ -158,7 +193,7 @@ gulp.task('watchers', function (done) {
 gulp.task(
     'server',
     gulp.series(
-        gulp.parallel('pug', 'scss', 'js', 'copy:fonts', 'copy:img', 'copy:libs', 'importLibs', 'importJsBlocks'),
+        gulp.parallel('pug', 'scss', 'eqcss', 'js', 'copy:fonts', 'copy:img', 'copy:libs', 'importLibs', 'importJsBlocks'),
         'serve',
         'watchers'
     )

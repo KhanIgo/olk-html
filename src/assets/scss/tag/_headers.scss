@@ -6,18 +6,33 @@ h1, h2, h3, h4, h5, h6{
 }
 h1{
     font-size: 2.25em;
+    @media (max-width: $mobMaw){
+        font-size: 1.75em;
+    }
 }
 h2{
     font-size: 2em;
+    @media (max-width: $mobMaw){
+        font-size: 1.55em;    
+    }
 }
 h3{
     font-size: 1.77em;
+    @media (max-width: $mobMaw){
+        font-size: 1.35em;
+    }
 }
 h4{
     font-size: 1.55em;
+    @media (max-width: $mobMaw){
+        font-size: 1.25em;
+    }
 }
 h5{
     font-size: 1.33em;
+    @media (max-width: $mobMaw){
+        font-size: 1.15em;
+    }
 }
 h6{
     font-size: 1em;
