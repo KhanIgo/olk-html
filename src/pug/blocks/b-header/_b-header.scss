@@ -54,6 +54,9 @@
         top: 15px;
         z-index: 15;
         font-size: 0.85em;
+        @media (min-width: $mobMaw){
+            display: none;
+        }
         
     }
 }
