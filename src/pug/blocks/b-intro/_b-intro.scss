@@ -72,7 +72,8 @@
     &__img {
         @media (min-width: $deskMw){
             position: absolute;
-            transform: translateY(-22%) translateX(-14%);
+            //transform: translateY(-22%) translateX(-14%);
+            transform: translateY(-25%);
         }
         
     }

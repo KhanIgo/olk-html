@@ -51,7 +51,9 @@
 // FONT DIN PRO BEGIN
 $isWoff: true;
 $isTtf: true;
-$fontPath: '/assets/fonts/DINpro-transfonter';
+//$fontPath: '../ /assets/fonts/DINpro-transfonter';
+$fontPath: '../fonts/DINpro-transfonter';
+
 @include font('DIN Pro', 300, 'normal', 'DINPro-Light', $fontPath);
 @include font('DIN Pro', 400, 'normal', 'DINPro', $fontPath);
 @include font('DIN Pro', 500, 'normal', 'DINPro-Medium', $fontPath);

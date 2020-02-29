@@ -62,6 +62,13 @@ span.spacer{
     color: inherit;
 }
 
+.f-times{
+    font-family: Times;
+    
+}
+i.norm{
+    font-style: normal;
+}
 .f-code{
     @include f-code;
 }

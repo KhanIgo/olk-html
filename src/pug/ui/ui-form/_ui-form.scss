@@ -1,72 +1,117 @@
-.c-input {
-    position: relative;
+@mixin ui-text-input{
+    padding: 0.6em 1em;
+    border: solid 1px black;    
     width: 100%;
-    display: flex;
-    
-    &_text {}
+    font-size: 0.8em;
+    outline: none;
+    font-family: "DIN Pro" , Arial;
+    opacity: 1;
+    color: inherit;
+    &:focus{
+        border-bottom-width: 2px;
+    }
+}
 
-    &__label {
-        display: block;
-        width: 100%;
-        color: rgba(255, 255, 255, 0.8);
+.ui-text-input, .ui-textarea-input{
+    @include ui-text-input;
+}
+.ui-text-input{}
+.ui-textarea-input{
+    resize: none;
+}
+.ui-input-submit{
+    width: 100%;
+    text-align: center;
+}
+
+.ui-form-item{
+    margin-bottom: 1.5em;
+    position: relative;
+} 
+
+.ui-form-title{
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 1em auto;
+    padding: 0 2em;
+}
+
+.col-full{
+    width: 100%;
+}
+
+.ui__invalid{
+    &_is-empty, &_email, &_phone{
+        border-bottom: solid 2px red;
+    }
+    &_message{
         position: absolute;
-        z-index: -1;
-        font-size: 1em;
-        top: 0.5em;
-        left: 0.7em;
-        transition: 0.35s ease-in-out;
-
-        &_text {}
-    }
-
-    &__in {
-        width: 100%;
-        padding: 0.5em 0.7em;
-        border: solid 1px grey;
-        border-radius: 4px;
-        font-size: 1em;
-        background: transparent;
-        color: rgba(255, 255, 255, 0.8);
-
-        &:focus {
-            & + .c-input__label {
-                top: -1.75em;
-                font-size: 0.75em;
-            }
-        }
-    }
-
-    &_text {}
-    
-    &_submit-wrpr{
-        display: flex;
-        width: 100%;
-        color: white;
-//        pointer-events: none;
-        transition: transform 0.25s ease-in-out;
-    }
-
-
-    &__btn {
-        padding: 0.5em 0.7em;
-        border: solid 1px grey;
-        border-radius: 4px;
-        font-size: 1em;
-//        background: rgba(255, 255, 255, 0.95);
-        background: transparent;
         color: inherit;
-//        cursor: none;
+        font-size: 0.8em;
+        bottom: 0;
+        left: 0;
+        transform: translateY(1.35em);
+    }
+}
+.ui{
+    &__has-required-input{
+        position: relative;
         
-        display: inline-block;
-        transition: transform 0.25s ease-in-out;
-        
+        &:after{
+            content: '';
+            position: absolute;
+            display: block;
+            width: 7px;
+            height: 7px;
+            right: 0.35em;
+            top: 0.8em;
+            @include mask('../img/ui/icon__required.svg');
+            @include mask-size(contain);
+            background-color: currentColor;
+//            background-color: red;
+        }
+    }
+}
 
-        &_submit {
-            padding-left: 1.5em;
-            padding-right: 1.5em;
-        }
-        &_full{
-            width: 100%;
-        }
+.ui-popup{
+    display: none;
+}
+
+.ui-form-message {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 500ms ease-in-out;
+    z-index: 15;
+    background: rgba(255, 255, 255, 0.85);
+    
+    &__loader{}
+    &__loader-icon{
+        width: 50px;
+        height: 50px;
+        background-image: url('../img/ui-form/loading-2.svg');
+        animation: spin 1.25s ease-in-out infinite;
+    }
+    &__on-complete{}
+    &__on-error{}
+    
+    &.is-active{
+        opacity: 1;
+        visibility: visible;
+    }
+    .message{
+        width: 100%;
+        max-width: 350px;
+        text-align: center;
     }
 }

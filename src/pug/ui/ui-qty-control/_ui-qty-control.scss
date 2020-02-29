@@ -1,0 +1,17 @@
+.ui-qty-control {
+    @include flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    
+    &__btn {
+        border: solid 1px black;
+        &_increment{
+            margin-right: -1px;
+        }
+        &_decrement{
+            margin-left: -1px;
+        }
+    }
+    &__input {
+    }
+}

@@ -6,7 +6,7 @@ jQuery($ => {
         var $errorMessage = $form.find('.js-on-error');
 
         if ($loader.length > 0) {
-            $loader.removeClass('active');
+            $loader.removeClass('is-active');
         }
 
         if (e.detail.apiResponse.status == 'mail_sent') {
@@ -16,9 +16,9 @@ jQuery($ => {
             showValidation($form, inputsData)
 
             if ($completeMessage.length > 0) {
-                $completeMessage.addClass('active');
+                $completeMessage.addClass('is-active');
                 setTimeout(function () {
-                    $completeMessage.removeClass('active');
+                    $completeMessage.removeClass('is-active');
                 }, 3000);
             }
         } else {
@@ -28,9 +28,9 @@ jQuery($ => {
             var message = e.detail.apiResponse.message;
             $errorMessage.find('span').text(message);
             if ($errorMessage.length > 0) {
-                $errorMessage.addClass('active');
+                $errorMessage.addClass('is-active');
                 setTimeout(function () {
-                    $errorMessage.removeClass('active');
+                    $errorMessage.removeClass('is-active');
                 }, 2500);
             }
         }
@@ -57,7 +57,7 @@ jQuery($ => {
         let $form = $(e.target);
         let $loader = $form.find('.js-form-loader');
         if ($loader.length > 0) {
-            $loader.addClass('active');
+            $loader.addClass('is-active');
         }
     });
 });
@@ -142,7 +142,7 @@ function checkField(field) {
 
 function addErrorMessage(field, message) {
     var sibling = field.nextSibling;
-    if (typeof (sibling) == 'object') {
+    if (isExist(sibling)) {
         if (typeof (sibling.classList) != 'undefined' && sibling.classList.contains('ui__invalid_message')) {
             sibling.remove();
         }
@@ -165,14 +165,14 @@ function removeErrorMessage(field) {
 
 function showFormError(form, message) {
     var errorDiv = form.querySelector('.js-on-error'),
-        errorSpan = form.querySelector('.b-course-purchase__on-error-message');
+        errorSpan = form.querySelector('.js-on-error .message');
 
     try {
         if (isExist(errorDiv) && isExist(errorSpan)) {
             errorSpan.textContent = message;
-            errorDiv.classList.add('active');
+            errorDiv.classList.add('is-active');
             setTimeout(function () {
-                errorDiv.classList.remove('active');
+                errorDiv.classList.remove('is-active');
             }, 1500);
         }
     } catch (e) {
@@ -196,40 +196,11 @@ function isFormValid(form) {
     if (invalidFields.length > 0) return false;
     else return true;
 }
-
-// маски ввода для полей email, phone и гибридное поле
-if (typeof (IMask) === "function") {
-    const emailFields = document.querySelectorAll('.mask-email'),
-        phoneFields = document.querySelectorAll('.mask-phone'),
-        emailPhoneFields = document.querySelectorAll('.mask-phone-email, .mask-email-phone');
-    const emailMask = {
-            mask: /^\S*@?\S*$/
-        },
-        phoneMask = {
-            mask: '+{7} (000) 000-00-00'
-        },
-        emailPhoneMask = [
-            {
-                mask: /^\S*@?\S*$/
-            },
-            {
-                mask: '+{7} (000) 000-00-00'
-            }
-          ];
-
-    if (emailFields.length > 0) {
-        emailFields.forEach(function (field) {
-            IMask(field, emailMask);
-        });
-    }
-    if (phoneFields.length > 0) {
-        phoneFields.forEach(function (field) {
-            IMask(field, phoneMask);
-        });
-    }
-    if (emailPhoneFields.length > 0) {
-        emailPhoneFields.forEach(function (field) {
-            IMask(field, emailPhoneMask);
-        });
-    }
+function isExist(el){
+    if( typeof(el)!='undefined' && el!=null ) return true;
+    else return false;
 }
+
+jQuery(function($) {
+    $('.mask-phone').mask("+7 (999) 999-99-99");
+});

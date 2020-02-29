@@ -1,22 +1,22 @@
-ul:not(.b-nav__list){
-    list-style: none;
-    @include flex;
-    flex-direction: column;
-    li{
-        position: relative;
-        padding-left: 25px;
-        margin-bottom: 1em; 
-        &:last-child{
-            margin-bottom: 0;
-        }
-        &:before{
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.5em;
-            height: 2px;
-            width: 10px;
-            background-color: $cPrimary;
-        }
-    }
-}
+//ul:not(.b-nav__list){
+//    list-style: none;
+//    @include flex;
+//    flex-direction: column;
+//    li{
+//        position: relative;
+//        padding-left: 25px;
+//        margin-bottom: 1em; 
+//        &:last-child{
+//            margin-bottom: 0;
+//        }
+//        &:before{
+//            content: '';
+//            position: absolute;
+//            left: 0;
+//            top: 0.5em;
+//            height: 2px;
+//            width: 10px;
+//            background-color: $cPrimary;
+//        }
+//    }
+//}

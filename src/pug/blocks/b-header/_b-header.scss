@@ -43,6 +43,7 @@
         text-decoration: none;    
         color: $cPrimary;
         position: relative;
+        white-space: nowrap;
         @include hover-underline;
         @media (max-width: $mobMaw){
             display: none;

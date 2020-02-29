@@ -232,7 +232,7 @@ i{
         position: absolute;
         top: 0;
         height: 100%;
-        width: 63px;
+        width: 40px;
 //        background: rgba(0,0,0, 0.4);
         color: transparent;
         background-color: transparent;
@@ -248,49 +248,33 @@ i{
             content: '';
             display: block;
             width: 100%;
-            height: 66px;
+            height: 100%;
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-image: url('../img/owl-slider-arrow.png');
-            background-color: rgba(250, 185, 157, 0.15);
+            top: 0;
+//            transform: translateY(-50%);
+            background-image: url('../img/owl-slider-arrow.svg');
+//            background-color: rgba(250, 185, 157, 0.15);
+            background-color: transparentize($cSecondary, 0.5);
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
         }
     }
     .bx-prev, .owl-prev{
-        left: calc( 50vw - 480px - 85px );
-        @media (max-width: 1100px) {
-            left: 0;
-        }
-//        left: 0;
+        left: 0;
         
         
     }
     .bx-next, .owl-next{
-        right: calc( 50vw - 480px - 85px );
-        @media (max-width: 1100px) {
-            right: 0px;
+        &:before{
+            transform: rotate(180deg);
         }
-        &:before{ transform: translateY(-50%) rotate(180deg); }
+        right: 0px;
     }
 }
 
 
-@media (max-width: 900px) {
-    .owl-stage{
-        display: -webkit-flex !important;
-        display: -moz-flex !important;
-        display: -ms-flex !important;
-        display: -o-flex !important;
-        display: flex !important;
-        align-items: stretch;
-    }
-    .b-big-slider-item{
-        height: 100%;
-    }
-}
+
 
 .wpcf7{
     width: 100%;

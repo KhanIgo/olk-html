@@ -1,0 +1,20 @@
+doctype html
+include parts/_mixins
+html(lang='RU-ru')
+    +head('Главная')
+    
+    body.body-front
+        //<div id="app">{{ message }}</div>
+        include components/c-header/c-header
+        
+        include components/c-lk/c-lk
+        
+        
+        include components/c-footer/c-footer
+        include parts/_footer-scripts
+        
+        script.
+            jQuery(function($) {});
+  
+  
+    

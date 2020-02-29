@@ -1,0 +1,22 @@
++b.b-lk.row
+    +b.b-lk-row_header
+        +e.col-code
+            p Код заказа
+        +e.col-qty
+            p Кол-во
+        +e.col-remove
+            p
+            
+    +b.b-lk-row_item
+        +e.col-code
+            +e.INPUT(type='text').input-code.ui-input_text.js-order-item-code-input
+            include ../../ui/ui-autocomplete/ui-autocomplete
+        +e.col-qty
+            +e.INPUT(type='text').input-qty.ui-input_text
+        +e.col-remove
+            +e.BUTTON.btn-remove.ui-btn_secondary._remove.js-remove-item
+                i
+    
+    //+b.b-lk-row
+    //+b.b-lk-row
+        

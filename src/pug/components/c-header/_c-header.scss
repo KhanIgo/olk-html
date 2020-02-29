@@ -1,8 +1,20 @@
 .c-header{
     width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
     z-index: 10;
+    background: url('../img/c-header/c-header_bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    
+    &_home{
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: none;
+    }
+    @media (max-width: $tabMaw){
+        position: fixed;
+        top: 0;
+    }
     
 }
