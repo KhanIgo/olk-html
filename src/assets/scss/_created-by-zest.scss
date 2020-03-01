@@ -1,0 +1,32 @@
+.created-by-zest-cnt{
+    justify-content: flex-end;
+    margin-top: 10px;
+    @media (max-width: $mobMaw){
+        justify-content: center;
+    }
+}
+.created-by-zest-link{
+//    color: black !important;
+//    font-weight: 500;
+    font-size: 0.8em;
+//    font-family: Arial;
+    i{}
+    @include flex;
+    align-items: flex-end;
+}
+.created-by-zest-label{
+//    display: none;
+    font-size: 0.9em;
+}
+.created-by-zest-icon{
+    display: block;
+    margin-left: 0.5em;
+    @include mask('../img/zest.svg');
+    @include mask-rep(no-repeat);
+    @include mask-pos(center);
+    @include mask-size(contain);
+    width: 2.5em;
+    height: 1em;
+    background-color: currentColor;
+//    @include mask();
+}
